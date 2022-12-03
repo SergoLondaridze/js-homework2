@@ -36,19 +36,23 @@ let obj = {
 
 const copyObj = (obj) => {
     let newObj = {}
-    for (const key in obj) {
+    for (let key in obj) {
         newObj[key] = obj[key];
-        if (typeof obj[key] == 'object') {
-            copyObj(obj[key]);
+        if (typeof obj[key] === 'object') {
+
+            newObj[key] = { ...obj[key] }
         }
     }
     return newObj;
 }
-let rr = copyObj(obj);
-rr.obj1.city = "moskva"
-console.log(copyObj(obj))
+let s = copyObj(obj)
+obj.obj1.city = 'tttt'
+console.log('copyobj', s)
+s.name = 'yyy'
+s.obj1.city = 'istabul'
 console.log(obj)
-//3
+
+3
 let a = 0, b = 0;
 let randomA, randomB;
 do {
